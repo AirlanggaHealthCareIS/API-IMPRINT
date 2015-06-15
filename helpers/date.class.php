@@ -11,7 +11,7 @@
 				$hari[4] = 'Kamis';
 				$hari[5] = 'Jumat';
 				$hari[6] = 'Sabtu';
-				$hari[7] = 'Minggu';
+				$hari[0] = 'Minggu';
 			}
 			else {
 				$hari[1] = 'Sen';
@@ -20,7 +20,7 @@
 				$hari[4] = 'Kam';
 				$hari[5] = 'Jum';
 				$hari[6] = 'Sab';
-				$hari[7] = 'Ming';
+				$hari[0] = 'Ming';
 			}
 			
 			return $hari;
@@ -93,12 +93,18 @@
 			return ($oadate-25510)*(60*60*24); // jam 07:00:00 
 		}
 				
-		function indoDate($date){
+		function indoDate($date, $time = false){
+			$timestamp = '';
+			if($time){
+				$date = explode(" ", $date);
+				$timestamp = $date[1];
+				$date = $date[0];
+			}
 			$tanggal=explode("-",$date);
 			$tahun=$tanggal[0];
 			$bulan=$tanggal[1];
 			$hari=$tanggal[2];
-			return $hari." ".self::indoMonth($bulan)." ".$tahun;
+			return $hari." ".self::indoMonth($bulan)." ".$tahun."  ".$timestamp;
 		}
 		
 		function dbDate($date){

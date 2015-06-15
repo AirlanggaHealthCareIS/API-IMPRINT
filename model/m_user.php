@@ -22,6 +22,7 @@
 			
 			return  md5($string);
 		}
+		
 		public function  cekToken($conn, $token, $userid, $regid){
 			
 			$cek = $this->getData($conn, $userid);

@@ -75,9 +75,10 @@
 			return $sql;
 		}
 		
-		public function listQuery($filter = ''){
+		public function listQuery($filter = '', $sql = ''){
 			
-			$sql = $this->simpleQuery();
+			if(empty($sql))
+				$sql = $this->simpleQuery();
 			
 			if(!empty($filter) && $filter != ''){
 			
@@ -95,9 +96,9 @@
 			return $conn->GetRow($sql);
 		}
 		
-		public function getList($conn, $filter = '', $order = '', $limit = '', $offset = ''){
+		public function getList($conn, $filter = '', $order = '', $limit = '', $offset = '', $sql = ''){
 		
-			$sql = $this->listQuery($filter);
+			$sql = $this->listQuery($filter, $sql);
 			
 			if($order != '')
 				$sql .= " ORDER BY ".$order;

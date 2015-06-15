@@ -8,6 +8,6 @@
 		public $order 	= 'iddokter,userid';
 		public $key 	= 'iddokter,userid';
 		public $label 	= 'rating';
-				
+		
 	}
 ?>

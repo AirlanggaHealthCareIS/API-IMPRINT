@@ -6,7 +6,7 @@
 		public $schema 	= 'imprint';
 		public $table 	= 'tr_realisasijadwal';
 		public $order 	= 'iddokter';
-		public $key 		= 'iddokter, tgl';
+		public $key 	= 'iddokter, tgl';
 		public $label 	= 'realisasi jadwal';
 		
 		
