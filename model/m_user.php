@@ -8,7 +8,6 @@
 		public $order 		= 'userid';
 		public $key 		= 'userid';
 		public $label 		= 'pengguna';
-		public $sequence	= 'ms_user_userid_seq';
 		
 		public function  simpleQuery(){
 		

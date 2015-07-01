@@ -8,7 +8,6 @@
 		public $order 		= 'idantrian';
 		public $key 		= 'idantrian';
 		public $label 		= 'antrian';
-		public $sequence	= 'tr_antrian_idantrian_seq';
 		
 		function simpleQuery(){
 		

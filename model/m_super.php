@@ -117,7 +117,7 @@
 		}
 		
 		public function lastInsert($conn){
-			$sql = 'select last_value from '.$this->sequence();
+			$sql = 'select last_insert_id() from '.$this->table();
 			
 			return $conn->GetOne($sql);
 		}
@@ -137,7 +137,6 @@
 		public function setLog(&$record){
 		
 			$record['T_UPDATETIME'] = date('Y-m-d H:i:s');
-			//$record['T_UPDATEUSER'] = "maul";
 			
 		}
 		
@@ -155,12 +154,7 @@
 			$msg	= $conn->ErrorMsg();
 			if(empty($msg)) $msg = "Transaksi berhasil.";
 			
-			$seq = $this->sequence;
-			
-			if(!empty($seq))
-				$key	= $this->lastInsert($conn);
-			else
-				$key	= $this->getRecordKey($record);
+			$key	= $this->lastInsert($conn);
 			
 			return array($err, $msg);
 		}

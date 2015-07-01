@@ -5,12 +5,8 @@
 			
 			require_once($conf['includes_dir'].'adodb5/adodb.inc.php');
 			
-			$strconn = 'host=' . $conf['db_host'] . ' dbname='  . $conf['db_dbname'] . ' user=' . $conf['db_username'] . ' password=' . $conf['db_password'];
-			if($conf['db_port'] != '')
-			$strconn .= ' port=' . $conf['db_port'];
-
 			$conn = ADONewConnection($conf['db_driver']);
-			$conn->Connect($strconn);
+			$conn->Connect($conf['db_host'], $conf['db_username'], $conf['db_password'], $conf['db_dbname']);
 			$conn->SetFetchMode(ADODB_FETCH_ASSOC);
 			
 			return $conn;

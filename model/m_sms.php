@@ -3,7 +3,7 @@
 	require_once($conf['model_dir'].'m_super.php');
 	
 	class mSMS extends mSuper {
-		public $schema 	= 'public';
+		public $schema 	= 'imprint';
 		public $table 	= 'outbox';
 		public $order 	= 'ID';
 		public $key 	= 'ID';
@@ -12,20 +12,11 @@
 		function kirim($conn, $notujuan, $text){
 			
 			$record							= array();
-			$record['"DestinationNumber"']	= $notujuan;
-			$record['"TextDecoded"']		= $text;
-			$record['"CreatorID"']			= "imprint";
+			$record['DestinationNumber']	= $notujuan;
+			$record['TextDecoded']		= $text;
+			$record['CreatorID']			= "imprint";
 			
-			$col = $val = array();
-			foreach($record as $k => $v){
-				$col[] = $k;
-				$val[] = $v;
-			}
-			$sql = "INSERT INTO ".$this->table()." (".implode(',',$col).") VALUES ('".implode("','",$val)."')";
-			$conn->Execute($sql);
-			
-			$err	= $conn->ErrorNo();
-			$msg	= $conn->ErrorMsg();
+			list($err, $msg) = $this->insert($conn, $record);
 			
 			return array($err, $msg);
 		}

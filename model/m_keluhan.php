@@ -8,7 +8,6 @@
 		public $order 		= 'idkeluhan';
 		public $key 		= 'idkeluhan';
 		public $label 		= 'keluhan';
-		public $sequence	= 'keluhan_idkeluhan_seq';
 
 
 		function simpleQuery(){

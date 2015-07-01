@@ -37,14 +37,7 @@
 			$p = $CStr->removeSpecialAll($p);			
 			$q = $CStr->removeSpecial($q);
 			
-			
-			if($f == "notify"){
-				$result = $Notif->send("APA91bEgQP7RoLV1nliFuyH06vrjMWoQF67w6qmKaBlIn8pU9n39d-hhPQ34diqFxReJb5iqiHJMnypW4KcJvRHs1sMbPgEQmfx4OfMPAXcUy3gJZkHKLfRYUm6X_YY9rsx1bSP1h5XkS9hFQKUp8hR6MS2cqqHMkQ", "hai");
-				$result = json_decode($result, true);
-				print_r($result);
-				echo $_GET['callback']."(".json_encode(array($result['failure'])).")";
-			}
-			else if($f == "register"){//(v)
+			if($f == "register"){//(v)
 				
 				//array user
 				$rec					= Array();
